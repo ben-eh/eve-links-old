@@ -3,22 +3,12 @@
 <!-- So like here I have no idea what I'm doing. I want to iterate through the categories and when I click on one,
 go to a 'show page' of sorts (or rather an index page that's been filtered by what you click on) -->
 
-<ul>
-  <% @categories.each do |category| %>
-    <% @category.links.each do |link| %>
-      <li>
-        <%= link.name %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
-
 <!-- I had something like this earlier -->
 
 <ul>
   <% @categories.each do |category| %>
   <li>
-    <%= link_to category, links_path(pass_category_id_as_param) %>
+    <%= link_to "#{category.name}", category_path(category.id) %>
   </li>
   <% end %>
 </ul>

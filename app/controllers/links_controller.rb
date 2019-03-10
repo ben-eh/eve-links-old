@@ -8,10 +8,12 @@ class LinksController < ApplicationController
 
   def new
     @link = Link.new
+    @categories = Category.all
   end
 
   def create
     @link = Link.new(link_params)
+    raise
     @link.save
     redirect_to links_path
   end

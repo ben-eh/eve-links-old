@@ -1,0 +1,9 @@
+<h1><%= @category.name %></h1>
+
+<ul>
+  <% @links.each do |link| %>
+    <li>
+      <a href="<%= link.url %>"><%= link.name %></a>
+    </li>
+  <% end %>
+</ul>

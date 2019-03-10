@@ -4,8 +4,15 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  # def show
-  #   @categories =
+  def show
+    @category = Category.find(params[:id])
+    @links = @category.links
+  end
+
+  private
+
+  # def set_category
+  #   @category = Category.find(params[:id])
   # end
 
 end
