@@ -5,19 +5,18 @@ and that would link_to categories#new' -->
 
 <h1>Add New Resource</h1>
 
-<%= form_for @link do |x| %>
-
-  <%= x.label :Name %>
-  <%= x.text_field :name %>
-
-  <%= x.label :URL %>
-  <%= x.text_field :url %>
-
-  <%= x.label :category_id %>
-  <%= x.text_field :category_id %>
-
-  <%= x.submit %>
-
+<%= form_tag("/create", method: "post") do %>
+  <%= text_field_tag(:name) %>
+  <%= label_tag(:name) %>
+  <%= text_field_tag(:url) %>
+  <%= label_tag(:url) %>
+  <% @categories.each do |category| %>
+    <ul>
+      <li>
+        <%= check_box_tag(:category_id, "#{category.id}") %>
+        <%= label_tag(:category_id, "#{category.name}") %>
+      </li>
+    </ul>
+  <% end %>
+  <%= submit_tag("Submit") %>
 <% end %>
-
-<%= @categories.first.name %>

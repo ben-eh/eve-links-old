@@ -1,14 +1,11 @@
 class LinksController < ApplicationController
 
-# here was thinking of doing filter on links index if I can pass 'category_id' or whatever
-  def index
-    @links = Link.all.where(category_id: params[:id])
-    # raise
-  end
+# no index method needed
 
   def new
     @link = Link.new
     @categories = Category.all
+    @category = params[:category_id]
   end
 
   def create
