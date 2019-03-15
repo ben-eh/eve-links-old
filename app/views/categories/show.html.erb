@@ -1,9 +1,11 @@
+<%= link_to image_tag("star.svg", width: 50), categories_path %>
+
 <h1><%= @category.name %></h1>
 
 <ul>
   <% @links.each do |link| %>
     <li>
-      <a href="<%= link.url %>"><%= link.name %></a>
+      <a href="https://evepraisal.com/" target="_blank"><%= link.name.capitalize %></a>
     </li>
   <% end %>
 </ul>

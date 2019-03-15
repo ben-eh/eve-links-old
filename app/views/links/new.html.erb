@@ -3,20 +3,28 @@ entry that would pass that category_id with the other params to create new insta
 Would also want to have a button that says 'click here to add new category if your desired one is not available
 and that would link_to categories#new' -->
 
+<%= link_to image_tag("star.svg", width: 50), categories_path %>
+
 <h1>Add New Resource</h1>
 
-<%= form_tag("/create", method: "post") do %>
-  <%= text_field_tag(:name) %>
-  <%= label_tag(:name) %>
-  <%= text_field_tag(:url) %>
-  <%= label_tag(:url) %>
-  <% @categories.each do |category| %>
-    <ul>
+<%= form_for @link do |x| %>
+  <%= x.text_field(:name) %>
+  <%= x.label(:name) %>
+  <%= x.text_field(:url) %>
+  <%= x.label(:url) %>
+  <ul>
+    <% @categories.each do |category| %>
       <li>
-        <%= check_box_tag(:category_id, "#{category.id}") %>
-        <%= label_tag(:category_id, "#{category.name}") %>
+        <!-- radio_button(object_name, method, tag_value, options={}) -->
+        <%= x.radio_button :category_id, category.id %>
+        <%= x.label :category_id, "#{category.name}" %>
       </li>
-    </ul>
-  <% end %>
-  <%= submit_tag("Submit") %>
+    <% end %>
+  </ul>
+  <%= x.submit("Submit") %>
 <% end %>
+
+<br>
+<br>
+
+<p>Don't see the category you're looking for? Click <%= link_to "here", new_category_path %> to add it to the list </p>

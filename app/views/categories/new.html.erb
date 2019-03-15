@@ -1,0 +1,16 @@
+<%= link_to image_tag("star.svg", width: 50), categories_path %>
+<h1>Add New Category</h1>
+
+<%= form_for @category do |x| %>
+  <%= x.text_field(:name) %>
+  <%= x.label(:name) %>
+  <%= x.submit("Submit") %>
+<% end  %>
+
+<h3>Existing Categories</h3>
+
+<ul>
+  <% @categories.each do |category| %>
+    <li><%= category.name %></li>
+  <% end %>
+</ul>

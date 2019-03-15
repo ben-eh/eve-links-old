@@ -5,14 +5,12 @@ class LinksController < ApplicationController
   def new
     @link = Link.new
     @categories = Category.all
-    @category = params[:category_id]
   end
 
   def create
     @link = Link.new(link_params)
-    raise
     @link.save
-    redirect_to links_path
+    redirect_to categories_path
   end
 
   private
