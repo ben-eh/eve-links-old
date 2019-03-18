@@ -1,23 +1,34 @@
-<h1>Eve Resources Tool</h1>
+<div class="container">
 
-<!-- So like here I have no idea what I'm doing. I want to iterate through the categories and when I click on one,
-go to a 'show page' of sorts (or rather an index page that's been filtered by what you click on) -->
+  <div class="header">
+    <div class="header_item" style="margin-left: 2%">
+      <%= link_to "Add a Category", new_category_path %>
+    </div>
+    <div class="header_item">
+      <h1>Eve Resources Tool</h1>
+    </div>
+    <div class="header_item" style="margin-right: 2%">
+      <%= link_to "Add a New Link", new_link_path %>
+    </div>
+  </div>
 
-<!-- I had something like this earlier -->
+  <div class="content_div">
+    <div class="content">
+      <ul>
+        <% @categories.each do |category| %>
+        <li>
+          <%= link_to "#{category.name}", category_path(category.id) %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
-<ul>
-  <% @categories.each do |category| %>
-  <li>
-    <%= link_to "#{category.name}", category_path(category.id) %>
-  </li>
-  <% end %>
-</ul>
+  <br>
 
-<br>
 
-<%= link_to "Add a New Category", new_category_path %>
+  <br>
+  <br>
 
-<br>
-<br>
 
-<%= link_to "Add a New Link", new_link_path %>
+</div>
